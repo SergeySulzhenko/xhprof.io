@@ -11,7 +11,7 @@ if (isset($_GET['ay']['profiling'])) {
     $_SESSION['ay']['profiling'] = !empty($_GET['ay']['profiling']);
 }
 
-define('VERSION', '0.0.0');
+define('VERSION', '1.1.0');
 define('BASE_PATH', realpath(__DIR__ . '/..'));
 
 // These constants are required to maintain
