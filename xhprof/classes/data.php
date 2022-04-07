@@ -30,6 +30,7 @@ class data
         }
 
         $this->db	= $db;
+        $this->db->query("set sql_mode = ''");//for compatibility with mariadb-10
     }
 
     public function get($id)
@@ -276,7 +277,7 @@ class data
         $qry = "INSERT INTO `calls` SET ";
 
         foreach($call as $colName => $val) {
-            $qry .= $colName ."=". $this->db->quote($val) .",";
+            $qry .= $colName ."=". $this->db->quote((string)$val) .",";
         }
         $qry = rtrim($qry, ',');
 
