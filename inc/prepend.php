@@ -3,7 +3,9 @@
 if (xhprof_init()) {
     // The following registers an anonymous shutdown function that then registers another (end of stack)
     // shutdown function that calls our actual function. Ensuring we run absolutely last.
-    register_shutdown_function(create_function('', 'register_shutdown_function("xhprof_shutdown");'));
+    register_shutdown_function(function () {
+        register_shutdown_function("xhprof_shutdown");
+    });
 }
 
 
